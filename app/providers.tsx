@@ -6,6 +6,7 @@ import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { WagmiProvider } from "wagmi";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { theme } from "../theme";
+import { TokenDataProvider } from "../contexts/TokenDataContext";
 import { SelectedTokenProvider } from "../contexts/SelectedTokenContext";
 import { config } from "../config/wagmi";
 
@@ -19,7 +20,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
           <CacheProvider>
             <ChakraProvider theme={theme}>
               <SelectedTokenProvider>
-                {children}
+                <TokenDataProvider>{children}</TokenDataProvider>
               </SelectedTokenProvider>
             </ChakraProvider>
           </CacheProvider>
